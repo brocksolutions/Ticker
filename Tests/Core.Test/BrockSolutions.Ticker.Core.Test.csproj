@@ -45,7 +45,15 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Projects\ProjectModelTest.cs" />
+    <Compile Include="Models\Tasks\TaskModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Core\BrockSolutions.Ticker.Core.csproj">
+      <Project>{859C2243-67E4-48A6-9CD7-C9A3C1FA43BF}</Project>
+      <Name>BrockSolutions.Ticker.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

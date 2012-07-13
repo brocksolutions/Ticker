@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BrockSolutions.Ticker.Manager;
 
 namespace BrockSolutions.Ticker.Applications.WpfApplication
 {
@@ -22,6 +23,7 @@ namespace BrockSolutions.Ticker.Applications.WpfApplication
         public MainWindow()
         {
             InitializeComponent();
+            var projects = ProjectManager.GetAll();
         }
     }
 }
