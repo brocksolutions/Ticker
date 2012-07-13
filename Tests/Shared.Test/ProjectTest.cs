@@ -54,6 +54,40 @@ namespace BrockSolutions.Ticker.Shared.Test
         }
 
         /// <summary>
+        /// Test construction of project object
+        /// - After construction, object's id property should be null
+        /// </summary>
+        [TestMethod]
+        public void TestConstructProjectNullId()
+        {
+            var p = new Project();
+            Assert.IsNull(p.Id);
+        }
+
+        /// <summary>
+        /// Test construction of project object
+        /// - After construction, object's id property should not have a value
+        /// </summary>
+        [TestMethod]
+        public void TestConstructProjectIdNotHasValue()
+        {
+            var p = new Project();
+            Assert.IsFalse(p.Id.HasValue);
+        }
+
+        /// <summary>
+        /// Test construction of project object
+        /// - After construction, object's id.value property should raise an InvalidOperationException
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void TestConstructProjectIdValueRaises()
+        {
+            var p = new Project();
+            var id = p.Id.Value;
+        }
+
+        /// <summary>
         /// Test project object
         /// - When name property is null, tostring method should return base tostring representation
         /// </summary>
@@ -103,6 +137,45 @@ namespace BrockSolutions.Ticker.Shared.Test
             var p = new Project() { Name = name };
 
             Assert.AreEqual(p.Name, name);
+        }
+
+        /// <summary>
+        /// Test project object
+        /// - Project id property should equal what you set it to be
+        /// </summary>
+        [TestMethod]
+        public void TestProjectSetIdPositive()
+        {
+            long id = 1;
+            var p = new Project() { Id = id };
+
+            Assert.AreEqual(p.Id, id);
+        }
+
+        /// <summary>
+        /// Test project object
+        /// - Project id property should equal what you set it to be
+        /// </summary>
+        [TestMethod]
+        public void TestProjectSetIdNegative()
+        {
+            long id = -1;
+            var p = new Project() { Id = id };
+
+            Assert.AreEqual(p.Id, id);
+        }
+
+        /// <summary>
+        /// Test project object
+        /// - Project id property should equal what you set it to be
+        /// </summary>
+        [TestMethod]
+        public void TestProjectSetIdZero()
+        {
+            long id = -1;
+            var p = new Project() { Id = id };
+
+            Assert.AreEqual(p.Id, id);
         }
 
         /// <summary>

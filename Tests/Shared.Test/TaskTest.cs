@@ -43,6 +43,40 @@ namespace BrockSolutions.Ticker.Shared.Test
         }
 
         /// <summary>
+        /// Test construction of Task object
+        /// - After construction, object's id property should be null
+        /// </summary>
+        [TestMethod]
+        public void TestConstructTaskNullId()
+        {
+            var p = new Task();
+            Assert.IsNull(p.Id);
+        }
+
+        /// <summary>
+        /// Test construction of Task object
+        /// - After construction, object's id property should not have a value
+        /// </summary>
+        [TestMethod]
+        public void TestConstructTaskIdNotHasValue()
+        {
+            var p = new Task();
+            Assert.IsFalse(p.Id.HasValue);
+        }
+
+        /// <summary>
+        /// Test construction of Task object
+        /// - After construction, object's id.value property should raise an InvalidOperationException
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void TestConstructTaskIdValueRaises()
+        {
+            var p = new Task();
+            var id = p.Id.Value;
+        }
+
+        /// <summary>
         /// Test Task object
         /// - When name property is null, tostring method should return base tostring representation
         /// </summary>
@@ -92,6 +126,45 @@ namespace BrockSolutions.Ticker.Shared.Test
             var p = new Task() { Name = name };
 
             Assert.AreEqual(p.Name, name);
+        }
+
+        /// <summary>
+        /// Test Task object
+        /// - Task id property should equal what you set it to be
+        /// </summary>
+        [TestMethod]
+        public void TestTaskSetIdPositive()
+        {
+            long id = 1;
+            var p = new Task() { Id = id };
+
+            Assert.AreEqual(p.Id, id);
+        }
+
+        /// <summary>
+        /// Test Task object
+        /// - Task id property should equal what you set it to be
+        /// </summary>
+        [TestMethod]
+        public void TestTaskSetIdNegative()
+        {
+            long id = -1;
+            var p = new Task() { Id = id };
+
+            Assert.AreEqual(p.Id, id);
+        }
+
+        /// <summary>
+        /// Test Task object
+        /// - Task id property should equal what you set it to be
+        /// </summary>
+        [TestMethod]
+        public void TestTaskSetIdZero()
+        {
+            long id = -1;
+            var p = new Task() { Id = id };
+
+            Assert.AreEqual(p.Id, id);
         }
     }
 }
